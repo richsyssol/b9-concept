@@ -30,9 +30,9 @@ const Footer = () => {
               ABOUT B9 CONCEPT
             </h3>
             <p className="text-lg text-gray-300">
-              Innovating Infrastructure, Strengthening Tomorrow. With over a
-              decade of expertise, we specialize in RCC pipe manufacturing and
-              large-scale infrastructure projects.
+              If you go to therapy, you'll have meetings with a therapist to
+              talk and learn. You'll learn skills to cope, feel better, and get
+              help with the problem you're having.
             </p>
           </div>
 

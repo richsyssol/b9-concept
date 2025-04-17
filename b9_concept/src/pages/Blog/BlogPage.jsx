@@ -11,7 +11,7 @@ const BlogPage = () => {
       title: "How Advanced Energy Scanning Detects Illness Before Appear",
       excerpt:
         "Explore how B9Concept’s world-leading Energy Scanning technology.",
-      category: "Door Maintenance",
+      category: "Energy Scanning",
       date: "May 15, 2023",
       slug: "french-door-maintenance-tips",
       image:
@@ -22,7 +22,7 @@ const BlogPage = () => {
       title: "Beat Stress Naturally: The Power of Yoga & Breathing Techniques",
       excerpt:
         "Discover how personalized yoga and targeted breathing exercises used at B9Concept .",
-      category: "Industry Trends",
+      category: "Stress Naturally",
       date: "April 28, 2023",
       slug: "window-design-trends-2023",
       image:
@@ -33,7 +33,7 @@ const BlogPage = () => {
       title: "Health Naturally: Say Goodbye to Inflammation, head ",
       excerpt:
         " IBS, eczema, chronic fatigue, and emotional eating—offering long-term relief and radiant health from within..",
-      category: "Design Tips",
+      category: "Inflammation",
       date: "March 10, 2023",
       slug: "choosing-windows-for-your-climate",
       image:
@@ -45,7 +45,7 @@ const BlogPage = () => {
         " Sound Therapy & RTT: Break Free from Anxiety and Emotional Blocks",
       excerpt:
         " Sound Techniques and Rapid  Techniques (RTT) can help you overcome anxiety, panic attacks, and trauma. ",
-      category: "Design Tips",
+      category: "Sound Therapy",
       date: "February 22, 2023",
       slug: "energy-efficient-french-doors",
       image:

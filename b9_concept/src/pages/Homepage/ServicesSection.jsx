@@ -3,42 +3,42 @@ import React from "react";
 const services = [
   {
     image:
-      "https://ais-akamai.rtl.de/masters/1961456/undefinedx0/prof-dr-stefanie-tritt-chefarztin-radiologie.jpg",
+      "https://www.thewhistlingkettle.com/cdn/shop/articles/teas-for-reducing-anxiety-1-1679690454722.jpg?v=1692110834&width=1600",
     title: "Stress, Anxiety, and Depression",
   },
   {
     image:
-      "https://ais-akamai.rtl.de/masters/1961456/undefinedx0/prof-dr-stefanie-tritt-chefarztin-radiologie.jpg",
+      "https://posm.org/wp-content/uploads/2024/08/POSM-Aug-28-1484x835.png ",
     title: "Chronic Pain",
   },
   {
     image:
-      "https://ais-akamai.rtl.de/masters/1961456/undefinedx0/prof-dr-stefanie-tritt-chefarztin-radiologie.jpg",
+      "https://navacenter.com/wp-content/uploads/2021/03/Hormone-Imbalance-in-Men-Header-e1616429678520.jpg",
     title: "Hormonal Imbalance",
   },
   {
     image:
-      "https://ais-akamai.rtl.de/masters/1961456/undefinedx0/prof-dr-stefanie-tritt-chefarztin-radiologie.jpg",
+      "https://images.moneycontrol.com/static-mcnews/2024/07/20240719060027_Untitled-design-13.jpg?impolicy=website&width=770&height=431",
     title: "Gut/Digestive Issues",
   },
   {
     image:
-      "https://ais-akamai.rtl.de/masters/1961456/undefinedx0/prof-dr-stefanie-tritt-chefarztin-radiologie.jpg",
-    title: "Stress, Anxiety & Depression",
+      "https://www.thewhistlingkettle.com/cdn/shop/articles/teas-for-reducing-anxiety-1-1679690454722.jpg?v=1692110834&width=1600",
+    title: "Stress, Anxiety, and Depression",
   },
   {
     image:
-      "https://ais-akamai.rtl.de/masters/1961456/undefinedx0/prof-dr-stefanie-tritt-chefarztin-radiologie.jpg",
+      "https://posm.org/wp-content/uploads/2024/08/POSM-Aug-28-1484x835.png ",
     title: "Chronic Pain",
   },
   {
     image:
-      "https://ais-akamai.rtl.de/masters/1961456/undefinedx0/prof-dr-stefanie-tritt-chefarztin-radiologie.jpg",
+      "https://navacenter.com/wp-content/uploads/2021/03/Hormone-Imbalance-in-Men-Header-e1616429678520.jpg",
     title: "Hormonal Imbalance",
   },
   {
     image:
-      "https://ais-akamai.rtl.de/masters/1961456/undefinedx0/prof-dr-stefanie-tritt-chefarztin-radiologie.jpg",
+      "https://images.moneycontrol.com/static-mcnews/2024/07/20240719060027_Untitled-design-13.jpg?impolicy=website&width=770&height=431",
     title: "Gut/Digestive Issues",
   },
 ];

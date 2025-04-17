@@ -47,9 +47,9 @@ const PopupModal = () => {
               We’re Here for You – Appointment Now{" "}
             </h2>
             <p className="mb-4 text-black">
-              A comprehensive range of RCC pipes, including plain and socket
-              type pipes, reinforced pipes for high-pressure applications NP3
-              articles.
+              Therapy, in a nutshell, is a way to address mental health concerns
+              or emotional challenges through a structured process of talking
+              with a trained therapist.
             </p>
 
             <button

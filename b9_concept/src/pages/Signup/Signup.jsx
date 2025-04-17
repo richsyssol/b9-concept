@@ -1,10 +1,7 @@
 import { useState } from "react";
-import { Form, Input, Button, Select } from "antd";
-//import useAuthStore from "@/store/authStore";
+import { Form, Input, Button } from "antd";
 import useAuthStore from "../../store/authStore";
 import { useNavigate } from "react-router-dom";
-
-const { Option } = Select;
 
 const Signup = () => {
   const [formData, setFormData] = useState({});
@@ -16,166 +13,117 @@ const Signup = () => {
   };
 
   const handleSubmit = async () => {
-    console.log(formData);
     const response = await signup(formData);
-    console.log(response);
     if (response.success) navigate("/appointment");
   };
 
   return (
-    // <div className="">
-    //   <Form layout="vertical" onFinish={handleSubmit}>
-    //     <Form.Item
-    //       label="Username"
-    //       name="username" // Make sure it's "username" and not "name"
-    //       rules={[{ required: true, message: "Please enter your username" }]}
-    //     >
-    //       <Input onChange={(e) => handleChange("username", e.target.value)} />
-    //     </Form.Item>
-
-    //     <Form.Item
-    //       label="Email"
-    //       name="email"
-    //       rules={[
-    //         {
-    //           required: true,
-    //           type: "email",
-    //           message: "Please enter a valid email",
-    //         },
-    //       ]}
-    //     >
-    //       <Input onChange={(e) => handleChange("email", e.target.value)} />
-    //     </Form.Item>
-
-    //     <Form.Item
-    //       label="Password"
-    //       name="password"
-    //       rules={[{ required: true, message: "Please enter your password" }]}
-    //     >
-    //       <Input.Password
-    //         onChange={(e) => handleChange("password", e.target.value)}
-    //       />
-    //     </Form.Item>
-
-    //     <Form.Item
-    //       label="Role"
-    //       name="role"
-    //       rules={[{ required: true, message: "Please select a role" }]}
-    //     >
-    //       <Select onChange={(value) => handleChange("role", value)}>
-    //         <Option value="user">User</Option>
-    //         <Option value="admin">Admin</Option>
-    //         <Option value="superadmin">Superadmin</Option>
-    //         <Option value="peer">Peer</Option>
-    //       </Select>
-    //     </Form.Item>
-
-    //     <Form.Item>
-    //       <Button type="primary" htmlType="submit">
-    //         Sign Up
-    //       </Button>
-    //     </Form.Item>
-
-    //     <div>
-    //       <a href="/login">Already Have an Account?</a>
-    //     </div>
-    //   </Form>
-    // </div>
     <div
-      className=""
-      style={{ display: "flex", flexWrap: "wrap", minHeight: "100vh" }}
+      style={{
+        display: "flex",
+        minHeight: "100vh",
+        backgroundColor: "#9ea4af",
+        justifyContent: "center",
+        alignItems: "center",
+        padding: "20px",
+      }}
     >
-      {/* Left Column - Form */}
-      <div className=" bg-gray-300" style={{ flex: "1", padding: "2rem" }}>
-        <h1 className="text-3xl text-blue-600 font-bold mb-4">B9 CONCEPT</h1>
-        <Form
-          className=""
-          style={{ marginTop: "-26" }}
-          layout="vertical"
-          onFinish={handleSubmit}
-        >
-          <Form.Item
-            label="Username"
-            name="username"
-            rules={[{ required: true, message: "Please enter your username" }]}
-          >
-            <Input
-              className="w-70 "
-              onChange={(e) => handleChange("username", e.target.value)}
-            />
-          </Form.Item>
-
-          <Form.Item
-            label="Email"
-            name="email"
-            rules={[
-              {
-                required: true,
-                type: "email",
-                message: "Please enter a valid email",
-              },
-            ]}
-          >
-            <Input onChange={(e) => handleChange("email", e.target.value)} />
-          </Form.Item>
-
-          <Form.Item
-            label="Password"
-            name="password"
-            rules={[{ required: true, message: "Please enter your password" }]}
-          >
-            <Input.Password
-              className="border p-1 w-70 "
-              onChange={(e) => handleChange("password", e.target.value)}
-            />
-          </Form.Item>
-
-          {/* <Form.Item
-            label="Role"
-            name="role"
-            rules={[{ required: true, message: "Please select a role" }]}
-          >
-            <Select onChange={(value) => handleChange("role", value)}>
-              <Option value="user">User</Option>
-              <Option value="admin">Admin</Option>
-              <Option value="superadmin">Superadmin</Option>
-              <Option value="peer">Peer</Option>
-            </Select>
-          </Form.Item> */}
-
-          <Form.Item>
-            <Button type="primary" htmlType="submit">
-              Sign Up
-            </Button>
-          </Form.Item>
-
-          <div className="font-bold mt-4">
-            <a href="/login">Already Have an Account?</a>
-          </div>
-        </Form>
-      </div>
-
-      {/* Right Column - Image */}
       <div
         style={{
-          flex: "2",
-          minWidth: "300px",
           display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
+          width: "900px",
+          boxShadow: "0 0 10px rgba(0,0,0,0.2)",
+          borderRadius: "12px",
+          overflow: "hidden",
+          backgroundColor: "#fff",
         }}
       >
-        <img
-          src="https://images.pexels.com/photos/268533/pexels-photo-268533.jpeg?cs=srgb&dl=pexels-pixabay-268533.jpg&fm=jpg"
-          alt="Form illustration"
+        {/* Left Column - Image & Welcome */}
+        <div
           style={{
-            width: "100%",
-            // maxWidth: "500px",
-            height: " 695px",
-            // borderRadius: "10px",
-            boxShadow: "0 0 10px rgba(0,0,0,0.1)",
+            flex: 1,
+            backgroundImage:
+              "url('https://t4.ftcdn.net/jpg/04/24/30/93/240_F_424309320_UkOxg2z3sq7yXwGnWCO6xBXkRI4byhnI.jpg')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            color: "#fff",
+            fontWeight: "bold",
+            fontSize: "1.5rem",
           }}
-        />
+        >
+          Welcome to B9 CONCEPT
+        </div>
+
+        {/* Right Column - Form */}
+        <div className="text-center" style={{ flex: 1.2, padding: "3rem" }}>
+          <h1 className="2xl" style={{ fontWeight: "bold", color: "#0a2a82" }}>
+            B9 CONCEPT
+          </h1>
+          <p style={{ marginBottom: "1.5rem" }}>
+            Already have an account?{" "}
+            <a href="/login" style={{ color: "#0a2a82", fontWeight: "bold" }}>
+              Login
+            </a>
+          </p>
+
+          <Form layout="vertical" onFinish={handleSubmit}>
+            <Form.Item
+              label="Username"
+              name="username"
+              rules={[
+                { required: true, message: "Please enter your username" },
+              ]}
+            >
+              <Input
+                onChange={(e) => handleChange("username", e.target.value)}
+              />
+            </Form.Item>
+
+            <Form.Item
+              label="Email"
+              name="email"
+              rules={[
+                {
+                  required: true,
+                  type: "email",
+                  message: "Please enter a valid email",
+                },
+              ]}
+            >
+              <Input onChange={(e) => handleChange("email", e.target.value)} />
+            </Form.Item>
+
+            <Form.Item
+              label="Password"
+              name="password"
+              rules={[
+                { required: true, message: "Please enter your password" },
+              ]}
+            >
+              <Input.Password
+                onChange={(e) => handleChange("password", e.target.value)}
+              />
+            </Form.Item>
+
+            <Form.Item>
+              <Button
+                type="primary"
+                htmlType="submit"
+                style={{
+                  backgroundColor: "#fbbc04",
+                  color: "#fff",
+                  fontWeight: "bold",
+                  width: "100%",
+                }}
+              >
+                Sign Up
+              </Button>
+            </Form.Item>
+          </Form>
+        </div>
       </div>
     </div>
   );

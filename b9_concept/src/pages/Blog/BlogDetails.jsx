@@ -60,13 +60,13 @@ const BlogDetailsPage = () => {
   const recentPosts = [
     {
       id: 2,
-      title: "2023 Window Design Trends You Should Know",
+      title: "way to get help with a mental health problem",
       date: "April 28, 2023",
       slug: "window-design-trends-2023",
     },
     {
       id: 3,
-      title: "How to Choose the Right Windows for Your Climate",
+      title: "feel better, and get help with the problem you're having",
       date: "March 10, 2023",
       slug: "choosing-windows-for-your-climate",
     },
