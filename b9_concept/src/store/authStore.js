@@ -6,6 +6,7 @@ const useAuthStore = create((set) => ({
   user: null,
   isAuthenticated: false,
   role: null, // Add role
+  loading: true,
 
   login: async (formData) => {
     try {
@@ -38,9 +39,10 @@ const useAuthStore = create((set) => ({
         user: res.data.user,
         isAuthenticated: true,
         role: res.data.user?.role,
+        loading: false,
       });
     } catch (error) {
-      set({ user: null, isAuthenticated: false, role: null });
+      set({ user: null, isAuthenticated: false, role: null, loading: false });
     }
   },
 

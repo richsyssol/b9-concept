@@ -6,7 +6,11 @@ import Aboutus from "./Aboutus";
 const VisionMission = () => {
   return (
     <div className="flex flex-col items-center">
-      <div className="flex flex-col md:flex-row justify-center items-center gap-10">
+      <h1 className="text-4xl mb-8 font-bold text-[#205781] py-5">
+        Our Vision & Mission
+      </h1>
+
+      <div className="flex flex-col md:flex-row justify-center  gap-10">
         <VisionMissionCard
           icon={Eye}
           title="Our Vision"

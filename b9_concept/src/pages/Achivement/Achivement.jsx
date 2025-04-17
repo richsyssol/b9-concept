@@ -2,7 +2,10 @@ import React from "react";
 import { Card, Row, Col, Button, Upload } from "antd";
 import { UploadOutlined, PlayCircleOutlined } from "@ant-design/icons";
 import { motion } from "framer-motion";
-
+import AwardAchievement from "./AwardAchievement";
+import MediaFeatures from "./MediaFeatures";
+import CommunityImpact from "./CommunityImpact";
+import CallToAction from "./CallToAction";
 const ProjectsSection = () => {
   const projects = [
     {
@@ -146,37 +149,41 @@ const ProjectsSection = () => {
           </Col>
         ))}
       </Row> */}
-      <MedicalRecordsBanner />
+      {/* <MedicalRecordsBanner /> */}
+      {/* <CallToAction /> */}
+      <MediaFeatures />
+      <CommunityImpact />
+      <AwardAchievement />
     </motion.div>
   );
 };
 
-const MedicalRecordsBanner = () => {
-  return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1 }}
-      className="py-15"
-    >
-      <div className="bg-gradient-to-r  from-[#205781] to-[#4F959D] py-9 rounded-lg p-6 flex justify-between items-center">
-        <div className="text-white text-lg font-semibold">
-          "Stay updated with the latest news, insights, and exclusive offers!
-          Subscribe to our newsletter and get valuable updates delivered
-          straight to your inbox."
-          <br />
-          <button className="bg-white text-black px-4 py-2 rounded-lg font-medium shadow">
-            Newsletter Signup
-          </button>
-        </div>
-        <img
-          src="https://fhlazwebsap01.blob.core.windows.net/drupal-data/inline-images/report.png"
-          alt="Medical Reports"
-          className="h-26 w-40"
-        />
-      </div>
-    </motion.div>
-  );
-};
+// const MedicalRecordsBanner = () => {
+//   return (
+//     <motion.div
+//       initial={{ opacity: 0 }}
+//       animate={{ opacity: 1 }}
+//       transition={{ duration: 1 }}
+//       className="py-15"
+//     >
+//       <div className="bg-gradient-to-r  from-[#205781] to-[#4F959D] py-9 rounded-lg p-6 flex justify-between items-center">
+//         <div className="text-white text-lg font-semibold">
+//           "Stay updated with the latest news, insights, and exclusive offers!
+//           Subscribe to our newsletter and get valuable updates delivered
+//           straight to your inbox."
+//           <br />
+//           <button className="bg-white text-black px-4 py-2 rounded-lg font-medium shadow">
+//             Newsletter Signup
+//           </button>
+//         </div>
+//         <img
+//           src="https://fhlazwebsap01.blob.core.windows.net/drupal-data/inline-images/report.png"
+//           alt="Medical Reports"
+//           className="h-26 w-40"
+//         />
+//       </div>
+//     </motion.div>
+//   );
+// };
 
 export default ProjectsSection;

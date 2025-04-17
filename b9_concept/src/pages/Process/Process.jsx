@@ -1,5 +1,9 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import CallToAction from "../Process/CallToAction";
+import ProcessAchievements from "./ProcessAchievements";
+import VideoSection from "./VideoSection";
+import Assessment from "./Assessments";
 
 const departments = [
   {
@@ -48,32 +52,27 @@ export default function DepartmentSection() {
   const [selectedDept, setSelectedDept] = useState(departments[0]);
 
   return (
-    <div className="text-center py-40 bg-gray-100">
-      {/* Heading Section */}
-      <motion.h1
-        className="text-gray-900 text-4xl mb-2"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-      >
-        We Are The
-      </motion.h1>
-      <motion.h1
-        className="text-4xl font-semibold mb-10 text-black"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-      >
-        Best Our Process
-      </motion.h1>
-
-      <div className="flex flex-col md:flex-row items-center justify-center">
+    <>
+      <div className="text-center py-35 bg-gray-100">
+        {/* Heading Section */}
+        <motion.h1
+          className="text-gray-900 text-4xl mb-2"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          We Are The
+        </motion.h1>
         <motion.h1
           className="text-4xl font-semibold mb-10 text-black"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
+          Best Our Process
+        </motion.h1>
+
+        <div className="flex flex-col md:flex-row items-center justify-center">
           {/* Sidebar Menu */}
           <div className="flex flex-col max-w-6xl mx-auto items-center justify-center gap-4 my-4">
             {departments.map((dept) => (
@@ -93,38 +92,45 @@ export default function DepartmentSection() {
               </motion.div>
             ))}
           </div>
-        </motion.h1>
-        {/* Main Content Section */}
-        <AnimatePresence mode="wait"></AnimatePresence>{" "}
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={selectedDept.id}
-            className="bg-white shadow-lg p-6 max-w-6xl mx-auto flex flex-col md:flex-row items-center"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -50 }}
-            transition={{ duration: 0.5 }}
-          >
-            <div className="md:w-1/2 text-left">
-              <h1 className="text-2xl font-semibold">{selectedDept.title}</h1>
-              <p className="my-2">{selectedDept.content}</p>
-              <ul className="list-disc list-inside text-lg space-y-1">
-                <li>Qualified Doctors</li>
-                <li>24x7 Emergency Services</li>
-                <li>General Medical</li>
-                <li>Feel like Home Services</li>
-              </ul>
-            </div>
-            <div className="md:w-1/2 mt-4 md:mt-0">
-              <img
-                src={selectedDept.image}
-                className="w-full h-105 rounded-lg shadow-md"
-                alt="Department"
-              />
-            </div>
-          </motion.div>
-        </AnimatePresence>
+
+          {/* Main Content Section */}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={selectedDept.id}
+              className="bg-white shadow-lg p-6 max-w-6xl mx-auto flex flex-col md:flex-row items-center"
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -50 }}
+              transition={{ duration: 0.5 }}
+            >
+              <div className="md:w-1/2 text-left">
+                <h1 className="text-2xl font-semibold">{selectedDept.title}</h1>
+                <p className="my-2">{selectedDept.content}</p>
+                <ul className="list-disc list-inside text-lg space-y-1">
+                  <li>Qualified Doctors</li>
+                  <li>24x7 Emergency Services</li>
+                  <li>General Medical</li>
+                  <li>Feel like Home Services</li>
+                </ul>
+              </div>
+              <div className="md:w-1/2 mt-4 md:mt-0">
+                <img
+                  src={selectedDept.image}
+                  className="w-full h-105 rounded-lg shadow-md"
+                  alt="Department"
+                />
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
       </div>
-    </div>
+
+      {/* CTA section */}
+      {/* <CallToAction />
+      <ProcessAchievements /> */}
+      <Assessment />
+
+      <VideoSection />
+    </>
   );
 }

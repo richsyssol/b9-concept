@@ -8,6 +8,7 @@ import MeetTheTeam from "./MeetTheTeam";
 import VisionMission from "./VisionMssion";
 import OurLocations from "./OurLocations";
 // import Services from "./Services";
+import ValuesSection from "./ValuesSection";
 
 const LabTestingCenter = () => {
   return (
@@ -18,10 +19,11 @@ const LabTestingCenter = () => {
       <AboutCompany />
       {/* <StatsSection /> */}
       {/* <Services /> */}
-      <OurLocations />
+      {/* <OurLocations /> */}
       <VisionMission />
 
       <MeetTheTeam />
+      <ValuesSection />
     </div>
   );
 };
@@ -32,7 +34,7 @@ const AboutCompany = () => {
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
-      className="flex flex-col py-11 md:flex-row items-center"
+      className="flex flex-col py-25 md:flex-row items-center"
     >
       <motion.div
         className="relative md:w-1/2"
@@ -65,10 +67,10 @@ const AboutCompany = () => {
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.8 }}
       >
-        <h2 className="text-3xl md:text-4xl font-bold text-[#205781] mt-29">
+        <h2 className="text-3xl md:text-4xl font-bold text-[#205781] ">
           The Largest Network Of Laboratories for Testing Services.
         </h2>
-        <p className="text-gray-600 py-5">
+        <p className="text-gray-600 ">
           We provide world-class testing services with advanced technology and
           expertise, ensuring quality, safety, and reliability for our clients
           worldwide. We provide world-class testing services with advanced
@@ -79,9 +81,16 @@ const AboutCompany = () => {
           services with advanced technology and expertise, ensuring quality,
           safety, and reliability for our clients worldwide. We provide
           world-class testing services with advanced technology and expertise,
+          services with advanced technology and expertise, ensuring quality,
+          safety, and reliability for our clients worldwide. We provide
+          world-class testing services with advanced technology and expertise,
+          ensuring quality, safety, and reliability for our clients worldwide.
           ensuring quality, safety, and reliability for our clients worldwide.
         </p>
-        <div className="flex flex-wrap justify-center md:justify-start mt-6 gap-6">
+        {/* <button className="read-more-btn mt-10 bg-gray-900 text-white p-2 font-bold">
+          Read More
+        </button> */}
+        {/* <div className="flex flex-wrap justify-center md:justify-start mt-6 gap-6">
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -103,7 +112,7 @@ const AboutCompany = () => {
               />
             </Card>
           </motion.div>
-        </div>
+        </div> */}
       </motion.div>
     </motion.div>
   );

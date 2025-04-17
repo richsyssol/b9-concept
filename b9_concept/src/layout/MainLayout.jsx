@@ -31,27 +31,23 @@ import { Outlet, useLocation } from "react-router-dom";
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
 import Sidebar from "../components/Sidebar/Sidebar";
-// Layout.js
-const hideNavbarPaths = [
-  "/login",
-  "/signup",
-  "/appointment",
-  "/adminlogin",
-  "/adminsignup",
-];
-
 function Layout() {
   const location = useLocation();
-  const shouldHideNavbar = hideNavbarPaths.includes(
-    location.pathname.toLowerCase()
-  );
+  const path = location.pathname.toLowerCase(); // Ensure lowercase for comparison
 
+  const hideNavbar =
+    path === "/login" ||
+    path === "/signup" ||
+    path === "/appointment" ||
+    path === "/adminlogin" ||
+    path === "/admindashboard";
   return (
     <>
-      {!shouldHideNavbar && <Navbar />}
+      {!hideNavbar && <Navbar />}
       <Outlet />
-      {!shouldHideNavbar && <Footer />}
+      {!hideNavbar && <Footer />}
     </>
   );
 }
+
 export default Layout;

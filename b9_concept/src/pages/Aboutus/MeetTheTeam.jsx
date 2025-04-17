@@ -1,70 +1,69 @@
 import React from "react";
 
-import Aboutus from "./Aboutus";
+const team = [
+  {
+    name: "Rajiv Sharma",
+    role: "Founder & CEO",
+    image:
+      "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80", // Replace with actual image paths
+    desc: "With 25+ years in architectural solutions, Rajiv founded Ishani Enterprises to bring European elegance to Indian homes through premium French doors and windows.",
+  },
+  {
+    name: "Priya Malhotra",
+    role: "Operations Director",
+    image:
+      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80",
+    desc: "Priya oversees our manufacturing excellence, ensuring each French door meets our exacting standards for quality and precision.",
+  },
+  {
+    name: "Vikram Singh",
+    role: "Technical Head",
+    image:
+      "https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
+    desc: "Vikram leads our R&D in innovative French door mechanisms and energy-efficient glazing solutions.",
+  },
+  {
+    name: "Neha Kapoor",
+    role: "Design Director",
+    image:
+      "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=761&q=80",
+    desc: "Neha’s expertise in French architectural aesthetics ensures our products blend timeless elegance with contemporary functionality.",
+  },
+];
 
-const MeetTheTeam = () => {
-  const leaders = [
-    {
-      name: "Priyanka Mukund Kale",
-      position: "Marketing Head",
-      description:
-        "Driving innovative marketing strategies. Focused on brand engagement and outreach.",
-      image: "https://suviaminfra.com/assets/user2-Dq5OlDsA.jpg",
-    },
-    {
-      name: "Laltika Shankar Pawar",
-      position: "Creative Director",
-      description:
-        "Leading the creative team with vision. Passionate about compelling storytelling.",
-      image: "https://suviaminfra.com/assets/user2-Dq5OlDsA.jpg",
-    },
-    {
-      name: "Ajinkya Prakash Patil",
-      position: "Operations Manager",
-      description:
-        "Ensuring smooth operations. Strategizing for long-term growth and efficiency.",
-      image: "https://suviaminfra.com/assets/user2-Dq5OlDsA.jpg",
-    },
-    {
-      name: "Arjun Devendra Singh",
-      position: "Technical Lead",
-      description:
-        "Overseeing technical advancements. Driving innovation in software development.",
-      image: "https://suviaminfra.com/assets/user2-Dq5OlDsA.jpg",
-    },
-    {
-      name: "Sneha Vinod Patil",
-      position: "HR Manager",
-      description:
-        "Managing talent acquisition. Fostering a dynamic workplace culture.",
-      image: "https://suviaminfra.com/assets/user2-Dq5OlDsA.jpg",
-    },
-  ];
-
+const LeadershipTeam = () => {
   return (
-    <section className="py-8 text-center ">
-      <h1 className="text-4xl font-bold text-[#205781] py-10">Meet the Team</h1>
-
-      <div className="container mx-auto flex flex-wrap justify-center gap-20 ">
-        {leaders.map((leader, index) => (
-          <TeamMember key={index} {...leader} />
-        ))}
+    <section className=" mt-33 ">
+      <div className="max-w-7xl py-10 mx-auto px-4 text-center">
+        <h2 className="text-3xl font-bold text-gray-900 mb-10">
+          Our Leadership Team
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {team.map((member, index) => (
+            <div
+              key={index}
+              className="bg-white rounded-xl shadow-md overflow-hidden"
+            >
+              <img
+                src={member.image}
+                alt={member.name}
+                className="w-full h-72 object-cover"
+              />
+              <div className="p-4 text-left">
+                <h3 className="text-lg font-semibold text-gray-900">
+                  {member.name}
+                </h3>
+                <p className="text-sm font-medium text-yellow-700 mb-2">
+                  {member.role}
+                </p>
+                <p className="text-sm text-gray-600">{member.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
 };
 
-const TeamMember = ({ image, name, position, description }) => (
-  <div className="text-center flex flex-col items-center max-w-xs">
-    <img
-      src={image}
-      alt={name}
-      className="w-30 h-30 rounded-full object-cover shadow-lg border border-gray-200"
-    />
-    <p className="text-2xl font-semibold text-gray-900 mt-2">{name}</p>
-    <p className="text-xl font-semibold text-gray-700">{position}</p>
-    <p className="mt-2 text-lg text-gray-700  ">{description}</p>
-  </div>
-);
-
-export default MeetTheTeam;
+export default LeadershipTeam;

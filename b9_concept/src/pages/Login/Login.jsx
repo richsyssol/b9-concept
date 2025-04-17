@@ -22,7 +22,7 @@ const Login = () => {
         console.log("User Role:", role);
 
         if (role === "admin") {
-          navigate("/admin/dashboard");
+          navigate("/dashboard");
         } else if (role === "user") {
           navigate("/appointment");
         } else {
@@ -39,61 +39,76 @@ const Login = () => {
   };
 
   return (
-    <div className="flex min-h-screen">
-      {/* Left Column - Form */}
-      <div className="flex-1 bg-gray-200 px-20 flex items-center justify-center">
-        <form className="w-full max-w-md" onSubmit={handleSubmit}>
-          <h1 className="text-3xl text-blue-900 font-bold mb-4">B9 CONCEPT</h1>
-
-          <div className="mb-4">
-            <a href="/signup">
-              Don't have an account?{" "}
-              <span className="hover:text-red-600 font-bold">Sign Up Now</span>
-            </a>
+    <div className="flex min-h-screen items-center justify-center bg-gray-400 px-4">
+      <div className="flex w-full max-w-4xl h-120 bg-white rounded-xl shadow-lg overflow-hidden">
+        {/* Left Image Section */}
+        <div className="hidden md:block w-1/2 relative">
+          <img
+            src="https://t4.ftcdn.net/jpg/04/24/30/93/240_F_424309320_UkOxg2z3sq7yXwGnWCO6xBXkRI4byhnI.jpg"
+            alt="Girl"
+            className="h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-opacity-10 flex items-center justify-center">
+            <h2 className="text-white text-2xl font-bold">
+              Welcome to B9 CONCEPT
+            </h2>
           </div>
+        </div>
 
-          <div className="mb-4">
-            <label className="block mb-1 font-medium">Email*</label>
-            <input
-              type="email"
-              name="email"
-              placeholder="Email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-              className="border w-full px-3 py-2 rounded-md"
-            />
-          </div>
+        {/* Right Form Section */}
+        <div className="w-full md:w-1/2 p-8 flex items-center justify-center">
+          <form className="w-full max-w-md" onSubmit={handleSubmit}>
+            <h1 className="text-4xl text-blue-900 font-extrabold mb-6 text-center">
+              B9 CONCEPT
+            </h1>
 
-          <div className="mb-4">
-            <label className="block mb-1 font-medium">Password*</label>
-            <input
-              type="password"
-              name="password"
-              placeholder="Password"
-              value={formData.password}
-              onChange={handleChange}
-              required
-              className="border w-full px-3 py-2 rounded-md"
-            />
-          </div>
+            <div className="mb-4 text-sm text-center">
+              <a href="/signup" className="text-gray-700">
+                Don't have an account?{" "}
+                <span className="text-blue-800 font-semibold hover:underline">
+                  Sign Up Now
+                </span>
+              </a>
+            </div>
 
-          <button
-            type="submit"
-            className="bg-amber-400 w-full py-2 font-bold rounded hover:bg-amber-500 transition"
-          >
-            Log in
-          </button>
-        </form>
-      </div>
+            <div className="mb-4">
+              <label className="block mb-1 font-semibold text-gray-700">
+                Email*
+              </label>
+              <input
+                type="email"
+                name="email"
+                placeholder="Enter your email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                className="border border-gray-300 w-full px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+              />
+            </div>
 
-      {/* Right Column - Image */}
-      <div className="flex-2 hidden md:block">
-        <img
-          src="https://images.pexels.com/photos/268533/pexels-photo-268533.jpeg?cs=srgb&dl=pexels-pixabay-268533.jpg&fm=jpg"
-          alt="Login Illustration"
-          className="w-full h-full object-cover"
-        />
+            <div className="mb-6">
+              <label className="block mb-1 font-semibold text-gray-700">
+                Password*
+              </label>
+              <input
+                type="password"
+                name="password"
+                placeholder="Enter your password"
+                value={formData.password}
+                onChange={handleChange}
+                required
+                className="border border-gray-300 w-full px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+              />
+            </div>
+
+            <button
+              type="submit"
+              className="bg-amber-400 hover:bg-amber-500 text-white font-bold w-full py-2 rounded-md transition duration-300"
+            >
+              Log in
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   );

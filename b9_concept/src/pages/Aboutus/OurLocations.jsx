@@ -4,7 +4,7 @@ import Aboutus from "./Aboutus";
 
 const OurLocations = () => {
   return (
-    <div className="z-0  w-full py-22">
+    <div className="z-0  w-full py-18">
       <h1 className="text-3xl sm:text-4xl font-extrabold  text-[#205781] py-9 text-center">
         Our Locations
       </h1>

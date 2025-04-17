@@ -92,13 +92,13 @@ const Footer = () => {
             </h3>
             <div>
               {[
-                { title: "Future of RCC Pipes", date: "Aug 28, 2025" },
+                { title: "How Advanced Energy ", date: "Aug 28, 2025" },
                 {
-                  title: "Innovations in Infrastructure",
+                  title: "Health is Naturally",
                   date: "July 15, 2025",
                 },
                 {
-                  title: "Sustainable Water Management",
+                  title: "Beat stress Naturally",
                   date: "June 10, 2025",
                 },
               ].map((blog, index) => (
