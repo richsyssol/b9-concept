@@ -6,11 +6,19 @@ exports.createAppointment = async (req, res) => {
     console.log("Request Body:", req.body);
 
     const appointment = await Appointment.create(req.body);
-    console.log("appointment :", appointment);
+    console.log("Appointment created:", appointment);
 
-    res.status(201).json({ message: "Appointment created successfully" });
+    res.status(201).json({
+      success: true,
+      message: "Appointment created successfully",
+      data: appointment,
+    });
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    console.error("Error creating appointment:", error);
+    res.status(400).json({
+      success: false,
+      error: error.message || "Failed to create appointment",
+    });
   }
 };
 exports.getAppointments = async (req, res) => {

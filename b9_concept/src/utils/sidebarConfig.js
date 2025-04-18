@@ -22,7 +22,7 @@ const sidebars = {
     {
       label: "Manage Appointment ",
       icon: Users,
-      subMenu: [{ label: "Listing show", link: "/admin/listing" }],
+      subMenu: [{ label: "Listing show", link: "/dashboard/listing" }],
     },
   ],
   hr: [

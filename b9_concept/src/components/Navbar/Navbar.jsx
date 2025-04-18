@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, User, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { navlogo } from "../../assets";
+import Profile from "./Profile"; // Import the Profile dropdown component
+import useAuthStore from "../../store/authStore"; // Import your auth store
 
 const Navbar = ({ setNavMargin }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -12,6 +14,7 @@ const Navbar = ({ setNavMargin }) => {
   const [navMarginTop, setNavMarginTop] = useState("mt-5");
 
   const navigate = useNavigate();
+  const { isAuthenticated, user, logout } = useAuthStore();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -31,10 +34,6 @@ const Navbar = ({ setNavMargin }) => {
       } else {
         setNavMarginTop("mt-5");
       }
-
-      // // Adjust the margin dynamically based on the navbar height
-      // const navbarHeight = showNavbar ? (hideTopBar ? 60 : 90) : 0;
-      // setNavMargin(navbarHeight);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -66,7 +65,7 @@ const Navbar = ({ setNavMargin }) => {
 
       {/* Main Navbar */}
       <nav
-        className={` rounded-b-full bg-gradient-to-r from-[#1f6578] via-[#1f6575] to-[#1f6572] h-20 text-gray-100 shadow-md md:px-10 flex justify-between items-center transition-all duration-500 z-50 ${navMarginTop}`}
+        className={` md:rounded-b-full bg-gradient-to-r from-[#1f6578] via-[#1f6575] to-[#1f6572] h-20 text-gray-100 shadow-md md:px-10 flex justify-between items-center transition-all duration-500 z-50 ${navMarginTop}`}
       >
         <div
           className="flex items-center cursor-pointer"
@@ -93,23 +92,29 @@ const Navbar = ({ setNavMargin }) => {
             "ACHIEVEMENT",
             "BLOG",
             "CONTACT US",
-            "LOGIN",
           ].map((item, index) => (
             <button
               key={index}
               onClick={() =>
                 navigate(`/${item.toLowerCase().replace(/\s/g, "")}`)
               }
-              className={`
-                ${
-                  item === "LOGIN"
-                    ? "bg-white text-black  px-7  py-1 rounded-2xl"
-                    : "hover:text-[#79b7c8]"
-                }`}
+              className="hover:text-[#79b7c8]"
             >
               {item}
             </button>
           ))}
+
+          {/* Conditionally render Profile dropdown or Login button */}
+          {isAuthenticated ? (
+            <Profile />
+          ) : (
+            <button
+              onClick={() => navigate("/login")}
+              className="bg-white text-black px-7 py-1 rounded-2xl"
+            >
+              LOGIN
+            </button>
+          )}
         </div>
 
         {/* Mobile Menu Toggle */}
@@ -121,44 +126,6 @@ const Navbar = ({ setNavMargin }) => {
       </nav>
 
       {/* Mobile Menu */}
-      {/* <AnimatePresence>
-        {isMenuOpen && (
-          <motion.div
-            initial={{ x: "100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: "100%" }}
-            transition={{ duration: 0.4 }}
-            className="fixed top-0 right-0 h-full w-3/4 max-w-sm shadow-md  px-6 py-6 lg:hidden space-y-4 z-[110]"
-          >
-            <button
-              onClick={toggleMenu}
-              className="absolute top-4 right-4 text-gray-100"
-            >
-              <X size={28} />
-            </button>
-            {[
-              "HOME",
-              "ABOUT US",
-              "PROCESS",
-              "ACHIEVEMENT",
-              "BLOG",
-              "CONTACT US",
-            ].map((item, index) => (
-              <motion.button
-                key={index}
-                onClick={() => {
-                  navigate(`/${item.toLowerCase().replace(/\s/g, "")}`);
-                  toggleMenu();
-                }}
-                className="block w-full text-left text-gray-100 font-semibold p-2 hover:bg-blue-600 rounded transition duration-300"
-                whileHover={{ scale: 1.05 }}
-              >
-                {item}
-              </motion.button>
-            ))}
-          </motion.div>
-        )}
-      </AnimatePresence> */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
@@ -166,8 +133,22 @@ const Navbar = ({ setNavMargin }) => {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ duration: 0.4 }}
-            className="fixed top-0 right-0 h-105 w-3/3 max-w-sm shadow-md px-6 py-6 lg:hidden space-y-4 z-[110] bg-gradient-to-r from-[#1f6578] via-[#1f6575] to-[#1f6572]"
+            className="fixed top-0 right-0 h-[200vh]  w-full max-w-sm shadow-md px-6 py-6 lg:hidden space-y-4 z-[110] bg-gradient-to-r from-[#1f6578] via-[#1f6575] to-[#1f6572]"
           >
+            {/* User Info Section at Top */}
+            {isAuthenticated && (
+              <div className="bg-white/10 p-4 rounded-lg mb-4 mt-10">
+                <div className="flex items-center gap-3">
+                  <div className="bg-white/20 p-2 rounded-full">
+                    <User size={24} className="text-white" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-white">{user?.username}</h3>
+                    <p className="text-sm text-white/80">{user?.email}</p>
+                  </div>
+                </div>
+              </div>
+            )}
             <button
               onClick={toggleMenu}
               className="absolute top-4 right-4 text-gray-100"
@@ -181,12 +162,16 @@ const Navbar = ({ setNavMargin }) => {
               "ACHIEVEMENT",
               "BLOG",
               "CONTACT US",
-              "LOGIN",
+              isAuthenticated ? "LOGOUT" : "LOGIN",
             ].map((item, index) => (
               <motion.button
                 key={index}
                 onClick={() => {
-                  navigate(`/${item.toLowerCase().replace(/\s/g, "")}`);
+                  if (item === "LOGOUT") {
+                    useAuthStore.getState().logout();
+                  } else {
+                    navigate(`/${item.toLowerCase().replace(/\s/g, "")}`);
+                  }
                   toggleMenu();
                 }}
                 className="block w-full text-left text-gray-100 font-semibold p-2 hover:bg-blue-600 rounded transition duration-300"

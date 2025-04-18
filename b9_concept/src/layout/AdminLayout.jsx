@@ -4,11 +4,13 @@ import AdminNavbar from "../components/AdminNavbar/AdminNavbar";
 const AdminLayout = () => {
   return (
     <div className="admin-layout" style={{ display: "flex" }}>
-      <div style={{ flex: 1 }}>
+      <div className="flex-1">
         <AdminNavbar />
-        <div className="flex items-center justify-around">
+        <div className="flex">
           <Sidebar />
-          <Outlet />
+          <div className="flex justify-center items-center">
+            <Outlet />
+          </div>
         </div>
       </div>
     </div>

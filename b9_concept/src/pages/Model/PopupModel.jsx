@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { X } from "lucide-react";
-import { useNavigate } from "react-router-dom"; // ✅ Import useNavigate
-import Login from "../Login/Login";
+import { useNavigate } from "react-router-dom";
 
 const PopupModal = () => {
   const [showModal, setShowModal] = useState(false);
-  const navigate = useNavigate(); // ✅ Initialize navigate
+  const navigate = useNavigate();
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -18,50 +17,58 @@ const PopupModal = () => {
   const closeModal = () => setShowModal(false);
 
   const handleAppointmentClick = () => {
-    navigate("/login"); // ✅ Make sure this matches your route in App.js
+    navigate("/appointment");
   };
 
   return (
-    <div className="p-6 text-center">
+    <>
       {showModal && (
-        <div className="fixed inset-0 flex items-center justify-center z-50 bg-opacity-50">
-          <div className="bg-gradient-to-r from-blue-300 via-gray-200 to-blue-300 p-6 rounded-lg shadow-xl w-120 relative">
-            {/* Close Icon */}
+        <div className="fixed inset-0 flex items-center justify-center z-[9999]   p-4">
+          {/* Modal Container */}
+          <div className="bg-gradient-to-r from-blue-300 via-gray-200 to-blue-300 rounded-lg shadow-xl w-full max-w-md relative overflow-hidden">
+            {/* Close Button */}
             <button
               onClick={closeModal}
-              className="absolute top-3 right-3 text-black hover:text-blue-900"
+              className="absolute top-3 right-3 text-gray-700 hover:text-blue-900 bg-white/50 rounded-full p-1"
               aria-label="Close"
             >
               <X size={20} />
             </button>
 
-            <div style={{ flex: 2 }}>
+            {/* Image Section */}
+            <div className="w-full h-48 sm:h-56 overflow-hidden">
               <img
                 src="https://images.pexels.com/photos/268533/pexels-photo-268533.jpeg?cs=srgb&dl=pexels-pixabay-268533.jpg&fm=jpg"
                 alt="Login Illustration"
-                style={{ width: "100%", height: "200px" }}
+                className="w-full h-full object-cover"
               />
             </div>
-            <br />
-            <h2 className="text-xl font-bold mb-4 text-blue-950">
-              We’re Here for You – Appointment Now{" "}
-            </h2>
-            <p className="mb-4 text-black">
-              Therapy, in a nutshell, is a way to address mental health concerns
-              or emotional challenges through a structured process of talking
-              with a trained therapist.
-            </p>
 
-            <button
-              className="mt-4 bg-blue-900 hover:bg-blue-600 text-white px-6 py-2 rounded transition duration-300"
-              onClick={handleAppointmentClick}
-            >
-              Appointment
-            </button>
+            {/* Content Section */}
+            <div className="p-5 sm:p-6">
+              <h2 className="text-xl sm:text-2xl font-bold mb-3 text-blue-950 text-center">
+                We're Here for You – Book an Appointment Now
+              </h2>
+              <p className="mb-5 text-gray-800 text-sm sm:text-base text-center">
+                Therapy, in a nutshell, is a way to address mental health
+                concerns or emotional challenges through a structured process of
+                talking with a trained therapist.
+              </p>
+
+              {/* Appointment Button */}
+              <div className="flex justify-center">
+                <button
+                  className="bg-blue-900 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition duration-300 text-sm sm:text-base w-full sm:w-auto"
+                  onClick={handleAppointmentClick}
+                >
+                  Book Appointment
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 };
 

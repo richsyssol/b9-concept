@@ -78,7 +78,7 @@ function App() {
         <Route
           path="appointment"
           element={
-            <ProtectedRoute>
+            <ProtectedRoute roles={["admin", "user"]}>
               <Appointment />
             </ProtectedRoute>
           }
@@ -95,6 +95,7 @@ function App() {
             </ProtectedRoute>
           }
         >
+          <Route index element={<Listing />} />
           <Route path="manageTask" element={<ManageTasks />} />
           <Route path="manageemployee" element={<ManageEmployee />} />
           <Route path="ManageClients" element={<ManageClients />} />
